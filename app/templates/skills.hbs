@@ -1,7 +1,8 @@
 <h2>Skills</h2>
 {{#each skill in model}}
-  {{skill.title}}
+  <li>{{#link-to "skill" skill.title}}{{skill.title}}{{/link-to}}</li>
 {{/each}}
 
 {{outlet}}
+
 
