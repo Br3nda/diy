@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function () {
-    return this.store.all('skill');
+    return this.store.find('skill');
   }
 });
