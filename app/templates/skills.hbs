@@ -1,8 +1,8 @@
-<h2>Skills</h2>
-{{#each skill in model}}
-  <li>{{#link-to "skill" skill.url}}{{skill.title}}{{/link-to}}</li>
-{{/each}}
-
-{{outlet}}
-
-
+<div class="pure-menu custom-restricted-width">
+    <span class="pure-menu-heading">Skills</span>
+    <ul class="pure-menu-list">
+    {{#each skill in model}}
+        <li class="pure-menu-item">{{#link-to "skill" skill.url classNames="pure-menu-link"}}{{skill.title}}{{/link-to}}</li>
+    {{/each}}   
+    </ul>
+</div>
