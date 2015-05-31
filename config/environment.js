@@ -29,10 +29,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.rootURL = '/';
     // Testem prefers this...
-    ENV.baseURL = '/diy';
     ENV.locationType = 'none';
-    ENV.location = 'hash';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -42,6 +41,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.baseURL = '/diy';
+    ENV.location = 'hash';
 
   }
 
