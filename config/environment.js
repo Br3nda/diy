@@ -12,6 +12,10 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://api.diy.org", // Allow data from DIY's api 
+      'img-src': "'self' http://*.cloudfront.net",
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance
@@ -20,7 +24,6 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.rootURL = '/';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
