@@ -26,13 +26,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.location = 'hash';
   }
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.baseURL = '/diy';
     ENV.locationType = 'none';
+    ENV.location = 'hash';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
