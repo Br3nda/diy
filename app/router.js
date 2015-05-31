@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('makers');
   this.route('projects');
   this.route('open-badges');
+  this.route('portfolio');
 });
 
 export default Router;
