@@ -21,3 +21,13 @@ install:
 
 script:
   - npm test
+
+after_success:
+  - ember build
+  - git checkout -b gh-pages --track origin/gh-pages
+  - rm assets/*
+  - cp -r dist/* .
+  - git add assets/*
+  - git commit -a -m "New build of gh-pages by Travis-CI"
+  - git push origin gh-pages
+
