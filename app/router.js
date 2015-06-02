@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('projects');
   this.route('open-badges');
   this.route('portfolio');
+  this.route('authorize');
 });
 
 export default Router;
