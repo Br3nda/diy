@@ -1,0 +1,16 @@
+{{outlet}}
+
+{{#if loginError}}
+    {{loginError}}
+{{/if}}
+
+<form class="pure-form">
+    <fieldset>
+        <legend>sign in as a maker</legend>
+        {{input required=true placeholder="username" value=username}}
+        {{input required=true placeholder="password" value=password type="password"}}
+        <button class="pure-button pure-button-primary" {{action "doAuth"}}>Sign-in</button>
+    </fieldset>
+</form>        
+
+
