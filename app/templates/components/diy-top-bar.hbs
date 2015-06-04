@@ -7,9 +7,21 @@
         </li>
         <li class="pure-menu-item">
           {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
-        </li> 
-        <li class="pure-menu-item">
-          {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
-        </li>         
+        </li>
+
+        {{#if session.isWorking }}
+          <li>Working..</li>
+        {{else}}
+          {{#if session.isAuthenticated }}
+            <li class="pure-menu-item">
+              Welcome {{session.currentUser.name}}
+              <a href="#" {{action 'logout'}}>Logout</a>
+            </li>
+          {{else}}
+            <li class="pure-menu-item">
+              <a class="pure-menu-link" href="#" {{action 'signIn'}}>Login via DIY</a>
+            </li>
+          {{/if}}
+        {{/if}}
     </ul>
 </div>
