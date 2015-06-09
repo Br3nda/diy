@@ -13,7 +13,7 @@ module.exports = function(environment) {
       }
     },
     contentSecurityPolicy: {
-      'connect-src': "'self' https://api.diy.org", // Allow data from DIY's api 
+      'connect-src': "'self' https://api.diy.org", // Allow data from DIY's api
       'img-src': "'self' http://*.cloudfront.net",
     },
 
@@ -46,7 +46,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.baseURL = '/diy';
     ENV.location = 'hash';
-
   }
 
   return ENV;
