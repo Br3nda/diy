@@ -1,1 +1,9 @@
 {{outlet}}
+
+{{#if isLoggedIn}}
+  Logged in
+{{else}}
+  {{#link-to "authorize"}}not logged in{{/link-to}}
+{{/if}}
+
+{{token}}
