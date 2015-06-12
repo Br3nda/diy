@@ -17,15 +17,17 @@ export default Ember.Controller.extend({
             type: "GET",
             url: 'https://api.diy.org/authorize',
             username: username,
-            password: password, 
-            beforeSend: function (xhr){ 
+            password: password,
+            beforeSend: function (xhr){
                 var tok = username + ':' + password;
                 var hash = btoa(tok);
                 xhr.setRequestHeader('Authorization',  "Basic " + hash);
             },
         }).done(function (response){
             console.log('log in success');
-            self.get('controllers.session').saveSession(response.response);
+            self.auth.set('token', response.response.token);
+            self.auth.set('maker_id', response.response.id);
+            self.auth.set('maker_url', response.response.url);
             self.transitionTo('portfolio');
         }).fail(function (jqXHR, textStatus) {
             self.set('loginError', textStatus);
