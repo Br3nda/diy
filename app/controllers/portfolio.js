@@ -2,7 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   isLoggedIn: function () {
-    console.log("Checking if logged in");
-    return !!(this.session.get('token'));
-  }.property('auth.token')
+    return this.session.isLoggedIn();
+  }.property('session.token'),
+  makerId: function() {
+
+  },
+  makerUrl: function() {
+    return this.session.get('maker_url');
+  }.property('session.maker_url')
 });

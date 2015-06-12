@@ -22,10 +22,8 @@ export default Ember.Controller.extend({
             },
         }).done(function (response){
             console.log('log in success');
-            self.session.load(response.response).then(function () {
-                self.transitionTo('portfolio');
-            });
-
+            self.session.saveSession(response.response);
+            self.transitionTo('portfolio');
         }).fail(function (jqXHR, textStatus) {
             self.set('loginError', textStatus);
         });
