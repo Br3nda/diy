@@ -1,10 +1,11 @@
 {{outlet}}
 
 
-<h2>{{makerUrl}}</h2>
+<h2>{{model.nickname}}</h2>
 
-{{#if isLoggedIn}}
-  Logged in
-{{else}}
-  {{#link-to "authorize"}}not logged in{{/link-to}}
-{{/if}}
+<img src="{{model.avatar.medium.url}}">
+
+
+{{#each badge in badges}}
+  {{badge.badge}}
+{{/each}}
