@@ -7,7 +7,6 @@ export default DS.RESTAdapter.extend({
     //   return Ember.String.classify(type);
     // },
     headers: function () {
-      debugger;
       return {
         'x-diy-api-token': this.get('token')
       }
