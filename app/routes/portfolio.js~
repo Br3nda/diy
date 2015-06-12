@@ -1,0 +1,12 @@
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model: function () {
+    this.session.loadSession();
+    return this.store.find('maker', this.session.get('maker_url'));
+  },
+  badges: function () {
+    debugger;
+    return this.store.find('badges', {id: this.model.get('url')});
+  }.property('@each.badges')
+});
