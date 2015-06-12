@@ -4,5 +4,6 @@ export default {
   initialize: function (registry, app) {
     app.inject('adapter', 'session', 'service:session');
     app.inject('controller', 'session', 'service:session');
+    app.inject('route', 'session', 'service:session');
   }
 };
