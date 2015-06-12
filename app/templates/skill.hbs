@@ -5,3 +5,8 @@
 
 {{outlet}}
 
+<ol>
+{{#each challenge in challenges}}
+  <li>{{#link-to skill.challenge model challenge}}{{challenge.title}}{{/link-to}}</li>
+{{/each}}
+</ol>
