@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
     },
     signIn: function (username, password) {
         var self = this;
-
         $.ajax({
             type: "GET",
             url: 'https://api.diy.org/authorize',
@@ -23,10 +22,10 @@ export default Ember.Controller.extend({
             },
         }).done(function (response){
             console.log('log in success');
-            self.auth.set('token', response.response.token);
-            self.auth.set('maker_id', response.response.id);
-            self.auth.set('maker_url', response.response.url);
-            self.transitionTo('portfolio');
+            self.session.load(response.response).then(function () {
+                self.transitionTo('portfolio');
+            });
+
         }).fail(function (jqXHR, textStatus) {
             self.set('loginError', textStatus);
         });
