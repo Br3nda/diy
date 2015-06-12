@@ -8,6 +8,13 @@ export default Ember.Service.extend({
     this.set('token', payload.token);
     this.set('maker_id', payload.id);
     this.set('maker_url', payload.url);
-    debugger;
+
+    var self   = this;
+    var cookie = this.get('cookie');
+ 
+    cookie.setCookie('token', payload.token);
+    cookie.setCookie('maker_id', payload.id);
+    cookie.setCookie('maker_url', payload.url);
+    
   }
 });
