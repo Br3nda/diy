@@ -12,5 +12,6 @@ export default DS.Model.extend({
   pole: DS.attr(),
   color: DS.attr(),
   notes: DS.attr(),
+  challenges: DS.hasMany('challenge')
 });
 
