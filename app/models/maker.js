@@ -7,4 +7,5 @@ export default DS.Model.extend({
   avatar: DS.attr(),
   portfolio: DS.attr(),
   stats: DS.attr(),
+  badges: DS.hasMany('badge')
 });
