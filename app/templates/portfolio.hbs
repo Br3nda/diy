@@ -1,12 +1,24 @@
 {{outlet}}
 
+{{#if isSignedIn}}
 
-<h2>{{model.nickname}}</h2>
+  <h2>{{model.nickname}}</h2>
 
-<img src="{{model.avatar.medium.url}}">
+  <img src="{{model.avatar.medium.url}}">
 
+  <h2>Projects</h2>
+  {{#each project in projects}}
+    <li>
+    {{#link-to "maker.project" project}}
+      {{#if project.title}}
+        {{project.title}}
+      {{else}}
+        Untitled Project
+      {{/if}}
+    {{/link-to}}
+    </li>
+  {{/each}}
 
-{{#each achievement in achievements}}
-  <li>
-  {{achievement.stamp}} {{achievement.challenge.title}} - {{#link-to 'skill' achievement.skill.url}}{{achievement.skill.title}}{{/link-to}}</li>
-{{/each}}
+{{else}}
+  {{render "authorize"}}
+{{/if}}
