@@ -5,9 +5,6 @@ export default DS.RESTSerializer.extend({
 
     var response = [];
     var _store = store;
-  //   // response.makers = [];
-  //   // response.projects = [];
-  //   // response.skills = [];
 
     payload.response.forEach(function (record) {
       _store.push('skill', record.skill);
