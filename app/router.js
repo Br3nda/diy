@@ -7,8 +7,8 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('skills');
-  this.route('skill', { path: '/skill/:skill_id' }, function() {
-    this.route('challenge', {path: '/skill/:skill_id/challenge/:challenge_id'});
+  this.route('skill', { path: '/skill/:url' }, function() {
+    this.route('challenge', {path: '/skill/:skill/challenge/:url'});
   });
   this.route('portfolio', function() {
     this.route('badges');
