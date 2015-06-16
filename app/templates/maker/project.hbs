@@ -1,1 +1,14 @@
 {{outlet}}
+<h1>{{model.title}}</h1>
+
+Featured: {{stats.featured}}
+Achievements: {{stats.achievements}}
+Comments: {{stats.comments}}
+Favourites: {{stats.favorites}}
+Fork: {{stats.fork}}
+Forked: {{stats.forks}}
+
+<h2>Comments</h2>
+{{#each comment in comments}}
+  comment
+{{/each}}

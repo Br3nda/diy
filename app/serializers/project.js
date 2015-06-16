@@ -6,12 +6,41 @@ export default DS.RESTSerializer.extend({
     var response = [];
     var _store = store;
 
+    var processRecord = function (record) {
+      debugger;
+      if (record.maker) {
+          _store.push('maker', record.maker);
+          record.maker = record.maker.id;
+      }
+      if (record.clips) {
+        var clips = [];
+        record.clips.forEach(function (clip) {
+          if (clip.assets) {
+            var assets = [];
+            clip.assets.forEach(function (asset) {
+              store.push(asset);
+              assets.push(asset.id);
+            });
+            clip.assets = assets;
+            debugger;
+          }
+          _store.push(clip);
+          clips.push(clip.id);
 
-    payload.response.forEach(function (record) {
-      _store.push('maker', record.maker);
-      record.maker = record.maker.id;
-      response.push(record);
-    });
+        });
+        record.clips = clips;
+      }
+    }
+
+    if (Array.isArray(payload.response)){
+      payload.response.forEach(function (record) {
+        response.push(processRecord(record));
+      });
+    }
+    else {
+      response.push(processRecord(payload.response));
+    }
+
     console.log(response);
     return response;
   }
