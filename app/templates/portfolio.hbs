@@ -7,5 +7,6 @@
 
 
 {{#each achievement in achievements}}
-  {{achievement}}
+  <li>
+  {{achievement.stamp}} {{achievement.challenge.title}} - {{#link-to 'skill' achievement.skill.url}}{{achievement.skill.title}}{{/link-to}}</li>
 {{/each}}
