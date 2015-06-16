@@ -1,15 +1,20 @@
 
 <div class="pure-menu pure-menu-horizontal">
-    <a href="#" class="pure-menu-heading pure-menu-link">DIY Yourself</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
           {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
         </li>
+        {{#if isSignedIn}}
         <li class="pure-menu-item">
           {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
-        </li> 
+        </li>
+        <li class="pure-menu-item">
+          <button {{action "signOut"}}>Sign-out</button>
+        </li>
+        {{else}}
         <li class="pure-menu-item">
           {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
-        </li>         
+        </li>
+        {{/if}}
     </ul>
 </div>
