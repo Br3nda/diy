@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    checkingCredentials: false,
+
     actions: {
         doAuth: function () {
             var username = this.get('username');
@@ -8,7 +10,11 @@ export default Ember.Controller.extend({
             this.signIn(username, password);
         }
     },
+
     signIn: function (username, password) {
+        this.set('checkingCredentials', true);
+        this.set('loginError', '');
+        
         var self = this;
         $.ajax({
             type: "GET",
@@ -26,6 +32,7 @@ export default Ember.Controller.extend({
             self.transitionTo('portfolio');
         }).fail(function (jqXHR, textStatus) {
             self.set('loginError', textStatus);
+            self.set('checkingCredentials', false);
         });
     }
 });
