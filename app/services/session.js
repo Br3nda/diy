@@ -14,7 +14,6 @@ export default Ember.Service.extend({
     this.set('maker_id', payload.id);
     this.set('maker_url', payload.url);
 
-    var self   = this;
     var cookie = this.get('cookie');
  
     console.log("Setting cookies");
