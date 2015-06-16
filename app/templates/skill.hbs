@@ -7,6 +7,8 @@
 
 <ol>
 {{#each challenge in challenges}}
-  <li>{{#link-to skill.challenge model challenge}}{{challenge.title}}{{/link-to}}</li>
+  <h2>{{challenge.title}}</h2>
+  <p><img src="{{challenge.image.web_300.url}}" height="{{challenge.image.web_300.height}}" width="{{challenge.image.web_300.width}}"/></p>
+  <p>{{challenge.description}}</p>
 {{/each}}
 </ol>
