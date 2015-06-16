@@ -8,17 +8,20 @@
 
   <h2>Projects</h2>
   {{#each project in projects}}
-    <li>
-    {{#link-to "maker.project" project}}
-      {{#if project.title}}
-        {{project.title}}
-      {{else}}
-        Untitled Project
-      {{/if}}
-    {{/link-to}}
-    </li>
-  {{/each}}
+    {{#if project.title}}
+      {{project.title}}
+    {{else}}
+      Untitled Project
+    {{/if}}
 
+    {{#link-to "maker.project" project}}
+
+      {{project-thumbnail project=project}}
+
+
+
+    {{/link-to}}
+  {{/each}}
 {{else}}
   {{render "authorize"}}
 {{/if}}

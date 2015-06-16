@@ -6,6 +6,7 @@ export default DS.Model.extend({
   stamp: DS.attr(),
   stats: DS.attr(),
   title: DS.attr(),
+  clips: DS.hasMany('clip', {async: true}),
 
 
 });
