@@ -1,7 +1,7 @@
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
-  urlForFindQuery: function (query, modelName) {
+  urlForFindQuery: function (query/*, modelName*/) {
     //Read items from the query, so we can move to the url
     var maker = query.maker;
     delete query.maker;

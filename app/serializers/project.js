@@ -7,7 +7,6 @@ export default DS.RESTSerializer.extend({
     var _store = store;
 
     var processRecord = function (record) {
-      debugger;
       if (record.maker) {
           _store.push('maker', record.maker);
           record.maker = record.maker.id;
@@ -22,7 +21,6 @@ export default DS.RESTSerializer.extend({
               assets.push(asset.id);
             });
             clip.assets = assets;
-            debugger;
           }
           _store.push(clip);
           clips.push(clip.id);
