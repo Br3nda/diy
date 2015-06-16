@@ -8,13 +8,16 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('skills');
   this.route('skill', { path: '/skill/:url' }, function() {
-    this.route('challenge', {path: '/skill/:skill/challenge/:url'});
+    this.route('challenge', {path: ':skill/challenge/:url'});
   });
-  this.route('portfolio', function() {
-    this.route('badges');
-  });
+
+  this.route('portfolio');
+
   this.route('authorize', {path: '/sign-in'});
-  
+
+  this.route('maker', function() {
+    this.route('project', {path: ':maker/project/:id'});
+  });
 });
 
 export default Router;
