@@ -1,6 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('badge', 'Unit | Model | badge', {
+moduleForModel('achievement', 'Unit | Model | achievement', {
   // Specify the other units that are required for this test.
   needs: []
 });
