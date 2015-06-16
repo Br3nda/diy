@@ -8,4 +8,5 @@ export default DS.Model.extend({
   stats: DS.attr(),
   meta: DS.attr(),
   image: DS.attr(),
+  skill: DS.belongsTo('skill')
 });
