@@ -6,8 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('skills', {path: '/s'});
-  this.route('skill', { path: '/s/:url' });
+  this.route('skills', {path: '/skills'}, function() {
+    this.route('skill', {path: 's/:url'});
+  });
+
   this.route('authorize', {path: '/sign-in'});
 
   this.route('maker', {path: '/m/:maker.url'}, function() {

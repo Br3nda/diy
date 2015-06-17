@@ -1,7 +1,6 @@
 <div class="pure-u">
-  {{#link-to "skill" skill.url classNames="pure-menu-link"}}
+  {{#link-to "skills.skill" skill.url classNames="pure-menu-link"}}
   <img src="{{skill.images.medium}}" alt="{{skill.title}}">
-  <h1>{{#link-to "skill" skill.url classNames="pure-menu-link"}}{{skill.title}}{{/link-to}}</h1>
+  <h1>{{#link-to "skills.skill" skill.url classNames="pure-menu-link"}}{{skill.title}}{{/link-to}}</h1>
   {{/link-to}}
-  <p>{{skill.description}}</p>
 </div>
