@@ -23,16 +23,15 @@ export default DS.RESTSerializer.extend({
 var  processRecord = function (record, store) {
 
     if (record.maker) {
-      record.maker = processMaker(record.maker, store)
+      record.maker = processMaker(record.maker, store);
     }
 
     //If we have clips
     if (Array.isArray(record.clips)) {
-      record.clips = processClips(record.clips, store)
+      record.clips = processClips(record.clips, store);
     }
-
     return record;
-}
+};
 
   /**
   Save maker into the store, and return the single integer id
@@ -41,7 +40,7 @@ var  processRecord = function (record, store) {
 var  processMaker = function (maker, store) {
   store.push('maker', maker);
   return maker.id;
-}
+};
 
 var processClips = function (clips, store) {
   var _clips = [];
@@ -54,4 +53,4 @@ var processClips = function (clips, store) {
 
   return _clips;
 
-}
+};

@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   // }.property('@each.model.comments'),
 
   stats: function () {
-    return this.model.get('stats')
+    return this.model.get('stats');
   }.property('model.stats'),
 
   clips: function () {
