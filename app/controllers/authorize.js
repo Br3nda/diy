@@ -29,8 +29,7 @@ export default Ember.Controller.extend({
         }).done(function (response){
             console.log('log in success');
             self.session.saveSession(response.response);
-            console.log(response);
-            self.transitionTo('index');
+            self.transitionTo('portfolio');
         }).fail(function (jqXHR, textStatus) {
             self.set('loginError', textStatus);
             self.set('checkingCredentials', false);
