@@ -1,21 +1,24 @@
-{{outlet}}
 
 
-{{#if loginError}}
-    {{loginError}}
-{{/if}}
+<div class="pure-u">
+  {{#if loginError}}
+      {{loginError}}
+  {{/if}}
 
-{{#if checkingCredentials}}
-  Checking with diy.org.....
-{{else}}
+  {{#if checkingCredentials}}
+    Checking with diy.org.....
+  {{else}}
 
-  <form class="pure-form">
-      <fieldset>
-          <legend>sign in as a maker</legend>
-          {{input required=true placeholder="username" value=username}}
-          {{input required=true placeholder="password" value=password type="password"}}
-          <button class="pure-button pure-button-primary" {{action "doAuth"}}>Sign-in</button>
-      </fieldset>
-  </form>        
-{{/if}}
+    <form class="pure-form">
+        <fieldset>
+            <legend>sign in as a maker</legend>
+            {{input required=true placeholder="username" value=username}}
+            {{input required=true placeholder="password" value=password type="password"}}
+            <button class="pure-button pure-button-primary" {{action "doAuth"}}>Sign-in</button>
+        </fieldset>
+    </form>
+  {{/if}}
 
+  {{outlet}}
+
+</div>

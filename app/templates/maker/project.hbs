@@ -1,7 +1,21 @@
-<div class="maker-portfolio-project">
-  {{outlet}}
-  <h1>{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
+<div class="project-content-header pure-g">
+    <div class="pure-u-1-2">
+        <h1 class="project-content-title">{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
+        <p class="project-content-subtitle">
+            {{#link-to "maker" model.maker}}{{model.maker.nickname}}{{/link-to}} at <span>{{model.stamp}}</span>
+        </p>
+    </div>
 
+    {{!--
+    <div class="project-content-controls pure-u-1-2">
+        <button class="secondary-button pure-button">Reply</button>
+        <button class="secondary-button pure-button">Forward</button>
+        <button class="secondary-button pure-button">Move to</button>
+    </div>
+    --}}
+</div>
+
+<div class="project-content-body">
   {{#each clip in clips}}
     <img src="{{clip.assets.web_460.url}}"
       width="{{clip.assets.web_460.width}}"

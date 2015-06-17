@@ -1,15 +1,42 @@
-<div id="maker-details">
-  <img src="{{model.avatar.medium.url}}">
+    <div id="list" class="pure-u-1">
+      <div class="project-item project-item-selected pure-g">
+        <img src="{{model.avatar.medium.url}}">
+        <div class="pure-u">
+          <p>{{model.nickname}}</p>
+        </div>
+      </div>
+      {{#each project in projects}}
+        <div class="project-item project-item-unread pure-g">
+          <div class="pure-u">
+            {{#link-to "maker.project" project}}
+              {{project-thumbnail project=project}}
+            {{/link-to}}
 
-  {{model.nickname}}
-</div>
+          </div>
 
-{{outlet}}
+          <div class="pure-u-3-4">
+              {{#link-to "maker.project" project}}
+              <h5 class="project-name">{{model.nickname}}</h5>
+              <h4 class="project-subject">{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h4>
+              {{/link-to}}
+              {{!--
+              <p class="project-desc">
+                  Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+              </p>
+              --}}
 
-<div id="maker-portfolio-projects">
-  {{#each project in projects}}
-        {{#link-to "maker.project" project}}
-        {{project-thumbnail project=project}}
-      {{/link-to}}
-    {{/each}}
-</div>
+          </div>
+        </div>
+      {{/each}}
+
+    </div>
+
+    <div id="main" class="pure-u-1">
+
+        <div class="project-content">
+            {{outlet}}
+        </div>
+    </div>
+
+
+
