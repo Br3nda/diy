@@ -1,3 +1,4 @@
+
 {{outlet}}
 <h1>{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
 
@@ -7,10 +8,11 @@
     height="{{clip.assets.web_460.height}}">
 {{/each}}
 
-<h2>Comments</h2>
+{{#if comments}}<h2>Comments</h2>
 {{#each comment in comments}}
   <p>
   <strong>{{#link-to "maker" comment.maker.url}}{{comment.maker.nickname}}{{/link-to}}</strong>:
   {{comment.raw}}
   </p>
 {{/each}}
+{{/if}}

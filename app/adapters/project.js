@@ -10,7 +10,6 @@ export default ApplicationAdapter.extend({
       url += '/'  + query.id;
       delete query.id;
     }
-    console.log(url);
     return url;
   },
 });
