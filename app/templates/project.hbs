@@ -1,0 +1,34 @@
+{{outlet}}
+<h1>{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
+
+{{#each clip in clips}}
+  <img src="{{clip.assets.web_460.url}}"
+    width="{{clip.assets.web_460.width}}"
+    height="{{clip.assets.web_460.height}}">
+{{/each}}
+
+<table class="pure-table">
+  <tr>
+    <td>Featured</td><td>{{stats.featured}}</td>
+  </tr>
+  <tr>
+    <td>Achievements</td><td>{{stats.achievements}}</td>
+  </tr>
+  <tr>
+    <td>Comments</td><td>{{stats.comments}}</td>
+  </tr>
+  <tr>
+    <td>Favourites</td><td>{{stats.favorites}}</td>
+  </tr>
+  <tr>
+    <td>Fork</td><td>{{stats.fork}}</td>
+  </tr>
+  <tr>
+    <td>Forked</td><td>{{stats.forks}}</td>
+  </tr>
+</table>
+
+<h2>Comments</h2>
+{{#each comment in comments}}
+  comment
+{{/each}}

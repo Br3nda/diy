@@ -8,6 +8,11 @@ export default DS.Model.extend({
   title: DS.attr(),
   clips: DS.hasMany('clip', {async: true}),
 
-
+  firstClip: function () {
+    self = this;
+    return this.get('clips').then(function (record) {
+      return record.get('firstObject');
+    });
+  }.property('clips')
 });
 
