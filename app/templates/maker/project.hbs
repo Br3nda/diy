@@ -1,18 +1,19 @@
+<div class="maker-portfolio-project">
+  {{outlet}}
+  <h1>{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
 
-{{outlet}}
-<h1>{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
+  {{#each clip in clips}}
+    <img src="{{clip.assets.web_460.url}}"
+      width="{{clip.assets.web_460.width}}"
+      height="{{clip.assets.web_460.height}}">
+  {{/each}}
 
-{{#each clip in clips}}
-  <img src="{{clip.assets.web_460.url}}"
-    width="{{clip.assets.web_460.width}}"
-    height="{{clip.assets.web_460.height}}">
-{{/each}}
-
-{{#if comments}}<h2>Comments</h2>
-{{#each comment in comments}}
-  <p>
-  <strong>{{#link-to "maker" comment.maker.url}}{{comment.maker.nickname}}{{/link-to}}</strong>:
-  {{comment.raw}}
-  </p>
-{{/each}}
-{{/if}}
+  {{#if comments}}<h2>Comments</h2>
+    {{#each comment in comments}}
+      <p>
+      <strong>{{#link-to "maker" comment.maker.url}}{{comment.maker.nickname}}{{/link-to}}</strong>:
+      {{comment.raw}}
+      </p>
+    {{/each}}
+  {{/if}}
+</div>

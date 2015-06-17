@@ -1,9 +1,29 @@
 
 
-#main {
-    padding: 10px;
+#maker-details {
+
 }
 
-.skill-grid {
-  width: 200px;
+#maker-portfolio-projects {
+  background-color: red;
+  height: 150px;
+  float: bottom;
+}
+
+#maker-portfolio-projects div {
+  display: inline;
+}
+
+.maker-portfolio-project img {
+    background-color: green;
+    padding: 10px;
+    display: inline;
+}
+
+.maker-portfolio-project {
+  display: inline;
+}
+
+.maker-portfolio-project div {
+  display: inline;
 }

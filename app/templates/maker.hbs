@@ -1,36 +1,15 @@
+<div id="maker-details">
+  <img src="{{model.avatar.medium.url}}">
 
+  {{model.nickname}}
+</div>
 
+{{outlet}}
 
-
-<div class="container">
-
-  <div class="row">
-    <div class="col-sm-12">
-        <img src="{{model.avatar.medium.url}}"> 
-
-        {{model.nickname}}
-
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-sm-12">
-      {{outlet}}
-    </div>
-  </div>
-
-    <div class="row">
-      {{#each project in projects}}
-        <div class="col-sm-1">
-          {{#link-to "maker.project" project}}
-
-            {{project-thumbnail project=project}}
-          
-          {{/link-to}}
-
-        </div>
-      {{/each}}
-  </div>
+<div id="maker-portfolio-projects">
+  {{#each project in projects}}
+        {{#link-to "maker.project" project}}
+        {{project-thumbnail project=project}}
+      {{/link-to}}
+    {{/each}}
 </div>
