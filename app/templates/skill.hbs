@@ -7,8 +7,8 @@
 
 <ol>
 {{#each challenge in challenges}}
-  <h2>{{challenge.title}}</h2>
-  <p><img src="{{challenge.image.web_300.url}}" height="{{challenge.image.web_300.height}}" width="{{challenge.image.web_300.width}}"/></p>
-  <p>{{challenge.description}}</p>
+
+  {{challenge-details challenge=challenge}}
+
 {{/each}}
 </ol>
