@@ -1,7 +1,15 @@
-<div class="pure-g">
-    {{#each skill in model}}
-      <div class="pure-u-1 pure-u-md-1-3">
-        {{skill-listing skill=skill}}
-      </div>
-    {{/each}}
+<div id="list" class="pure-u-1">
+{{#each skill in model}}
+  <div class="project-item project-item-unread pure-g">
+      {{skill-listing skill=skill}}
+  </div>
+{{/each}}
 </div>
+
+<div id="main" class="pure-u-1">
+    <div class="project-content">
+        {{outlet}}
+    </div>
+</div>
+
+
