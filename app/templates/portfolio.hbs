@@ -1,25 +1,3 @@
 {{outlet}}
 
-{{#if isSignedIn}}
-
-  <h2>{{model.nickname}}</h2>
-
-  <img src="{{model.avatar.medium.url}}">
-
-  <h2>Projects</h2>
-  {{#each project in projects}}
-    {{#if project.title}}
-      {{project.title}}
-    {{else}}
-      Untitled Project
-    {{/if}}
-
-    {{#link-to "project" project}}
-
-      {{project-thumbnail project=project}}
-
-    {{/link-to}}
-  {{/each}}
-{{else}}
-  {{render "authorize"}}
-{{/if}}
+{{render "maker" model}}

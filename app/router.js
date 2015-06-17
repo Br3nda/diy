@@ -9,11 +9,12 @@ Router.map(function() {
   this.route('skills', {path: '/s'});
   this.route('skill', { path: '/s/:url' });
   this.route('authorize', {path: '/sign-in'});
-  
+
   this.route('maker', {path: '/m/:maker.url'}, function() {
     this.route('project', {path: 'p/:id'});
     this.route('badges');
   });
+  this.route('portfolio');
 });
 
 export default Router;
