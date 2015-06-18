@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('portfolio');
+
   this.route('skills', {path: '/skills'}, function() {
     this.route('skill', {path: 's/:url'});
   });
@@ -16,7 +18,10 @@ Router.map(function() {
     this.route('project', {path: 'p/:id'});
     this.route('badges');
   });
-  this.route('portfolio');
+
+  this.route('project', {path: 'p'}, function () {
+    this.route('new', {path: 'new'});
+  });
 });
 
 export default Router;

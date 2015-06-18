@@ -12,4 +12,8 @@ export default ApplicationAdapter.extend({
     }
     return url;
   },
+  urlForCreateRecord: function (modelName, snapshot) {
+    var maker = this.session.get('maker_url');
+    return '%@/%@/projects'.fmt(this._buildURL('makers'), maker);
+  }
 });
