@@ -5,10 +5,11 @@ export default DS.RESTAdapter.extend({
   /**
   */
   headers: function () {
+    this.session.loadSession();
     return {
-      'x-diy-api-token': this.get('token')
+      'x-diy-api-token': this.session.get('token')
     };
-  }.property('auth.token')
+  }.property('session.token')
 });
 
 
