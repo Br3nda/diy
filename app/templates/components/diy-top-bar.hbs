@@ -1,25 +1,34 @@
-<a {{action "showMenu"}} class="nav-menu-button">Menu</a>
-<div class="nav-inner">
-  {{#if isSignedIn}}
-    <button class="primary-button pure-button" {{action "signOut"}}>Sign-out</button>
-  {{/if}}
-  <div class="pure-menu">
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item">
-          {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
-        </li>
-        <li class="pure-menu-item">
-          {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
-        </li>
-        <li class="pure-menu-item">
-          {{#if isSignedIn}}
-          {{else}}
-            {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
-          {{/if}}
-        </li>
-    </ul>
-
-
-  </div>
+<div id="menu-activator" class="pure-u">
 
 </div>
+<div id="nav" class="pure-u {{if menuActive 'active'}}">
+<a {{action "showMenu"}} class="nav-menu-button">Menu</a>
+  <div class="nav-inner">
+    {{#if isSignedIn}}
+      <button class="primary-button pure-button">New</button>
+    {{/if}}
+    <div class="pure-menu">
+      <ul class="pure-menu-list">
+          <li class="pure-menu-item">
+            {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
+          </li>
+          <li class="pure-menu-item">
+            {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
+          </li>
+          <li class="pure-menu-item">
+            {{#if isSignedIn}}
+              {{#link-to "project.new" classNames="pure-menu-link"}}New{{/link-to}}
+            {{else}}
+              {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
+            {{/if}}
+          </li>
+      </ul>
+    {{#if isSignedIn}}
+      <button class="primary-button pure-button" {{action "signOut"}}>Sign-out</button>
+    {{/if}}
+
+    </div>
+
+  </div>
+</div>
+

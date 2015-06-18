@@ -62,8 +62,12 @@ p {
 #nav .nav-menu-button {
     display: block;
     top: 0.5em;
-    right: 0.5em;
+    left: 0.5em;
     position: absolute;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    background: rgb(37, 42, 58);
 }
 
 /* When "Menu" is clicked, the navbar should be 80% height */
@@ -80,7 +84,6 @@ p {
     display: block;
     padding: 2em 0;
 }
-
 
 /*
  * -- NAV BAR STYLES --
@@ -105,6 +108,10 @@ p {
         color: rgb(75, 113, 151);
     }
 
+#menu-activator {
+    background: rgb(55, 60, 90);
+    color: #fff;
+}
 
 /*
  * -- project STYLES --
@@ -202,7 +209,7 @@ p {
  * On tablets and other medium-sized devices, we want to customize some
  * of the mobile styles.
  */
-@media (min-width: 30em) {
+@media (min-width: 40em) {
 
     /* Move the layout over so we can fit the nav + list in on the left */
     #layout {
@@ -263,7 +270,7 @@ p {
     /* This will take up the entire height, and be a little thinner */
     #list {
         margin-left: -350px;
-        width:350px;
+        width: 350px;
         height: 100%;
         border-right: 1px solid #ddd;
     }
