@@ -12,7 +12,6 @@
         {{#link-to "maker.project" project}}
           {{project-thumbnail project=project}}
         {{/link-to}}
-
       </div>
 
       <div class="pure-u-3-4">
@@ -23,6 +22,7 @@
       </div>
     </div>
   {{/each}}
+  <button {{action "loadMoreProjects"}}>more</button>
 
 </div>
 
