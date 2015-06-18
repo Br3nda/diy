@@ -8,6 +8,9 @@ export default Ember.Component.extend({
   actions: {
     signOut: function () {
       this.session.signOut();
+    },
+    showMenu: function () {
+
     }
   }
 });

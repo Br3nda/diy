@@ -1,19 +1,25 @@
-<div class="pure-menu">
-  <ul class="pure-menu-list">
-      <li class="pure-menu-item">
-        {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
-      </li>
-      <li class="pure-menu-item">
-        {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
-      </li>
-      <li class="pure-menu-item">
-       {{#if isSignedIn}}
-       {{else}}
-          {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
-        {{/if}}
-      </li>
-  </ul>
+<a {{action "showMenu"}} class="nav-menu-button">Menu</a>
+<div class="nav-inner">
+  {{#if isSignedIn}}
+    <button class="primary-button pure-button" {{action "signOut"}}>Sign-out</button>
+  {{/if}}
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
+        </li>
+        <li class="pure-menu-item">
+          {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
+        </li>
+        <li class="pure-menu-item">
+          {{#if isSignedIn}}
+          {{else}}
+            {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
+          {{/if}}
+        </li>
+    </ul>
+
+
+  </div>
+
 </div>
-{{#if isSignedIn}}
-  <button class="primary-button pure-button" {{action "signOut"}}>Sign-out</button>
-{{/if}}
