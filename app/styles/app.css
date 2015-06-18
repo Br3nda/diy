@@ -13,6 +13,9 @@ a {
     color: #1b98f8;
 }
 
+p {
+    padding: 10px;
+}
 
 /*
  * -- HELPER STYLES --
@@ -199,7 +202,7 @@ a {
  * On tablets and other medium-sized devices, we want to customize some
  * of the mobile styles.
  */
-@media (min-width: 40em) {
+@media (min-width: 30em) {
 
     /* Move the layout over so we can fit the nav + list in on the left */
     #layout {
