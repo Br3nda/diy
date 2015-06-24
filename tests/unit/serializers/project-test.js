@@ -2,7 +2,14 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('project', 'Unit | Serializer | project', {
   // Specify the other units that are required for this test.
-  needs: ['serializer:project']
+  needs: [
+    'serializer:project',
+    'model:maker',
+    'model:achievement',
+    'model:clip',
+    'model:challenge',
+    'model:skill'
+    ]
 });
 
 // Replace this with your real tests.

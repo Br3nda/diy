@@ -2,7 +2,12 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('comment', 'Unit | Model | comment', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:maker',
+    'model:project',
+    'model:achievement',
+    'model:clip'
+  ]
 });
 
 test('it exists', function(assert) {
