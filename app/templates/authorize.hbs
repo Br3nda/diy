@@ -1,8 +1,8 @@
 
 
 <div class="pure-u">
-  {{#if loginError}}
-      {{loginError}}
+  {{#if session.signInErrorMessage}}
+      {{session.signInErrorMessage}}
   {{/if}}
 
   {{#if checkingCredentials}}

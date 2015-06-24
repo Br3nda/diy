@@ -5,6 +5,8 @@ export default Ember.Service.extend({
   maker_id: null,
   maker_url: null,
 
+  signInErrorMessage: '',
+
   isSignedIn:function () {
     this.loadSession();
     return !! this.get('token');
@@ -39,5 +41,33 @@ export default Ember.Service.extend({
     this.set('token', 0);
     this.set('maker_id', 0);
     this.set('maker_url', 0);
+  },
+
+  signIn: function (username, password) {
+    var self = this;
+
+    var promise = new Promise(function(resolve, reject) {
+      var _reject = reject;
+      var _resolve = resolve;
+      $.ajax({
+        type: "GET",
+        url: 'https://api.diy.org/authorize',
+        username: username,
+        password: password,
+        beforeSend: function (xhr){
+          var tok = username + ':' + password;
+          var hash = btoa(tok);
+          xhr.setRequestHeader('Authorization',  "Basic " + hash);
+        },
+      }).done(function (response){
+        self.saveSession(response.response);
+        self.set('isSignedIn', true);
+        _resolve();
+      }).fail(function (jqXHR, textStatus) {
+        self.set('signInErrorMessage', textStatus);
+        _reject(textStatus);
+      });
+    });
+    return promise;
   }
 });
