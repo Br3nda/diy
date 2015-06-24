@@ -9,7 +9,6 @@ export default DS.Model.extend({
   clips: DS.hasMany('clip', {async: true}),
 
   firstClip: function () {
-    var self = this;
     return this.get('clips').then(function (record) {
       return record.get('firstObject');
     });
