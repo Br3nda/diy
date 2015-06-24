@@ -6,11 +6,16 @@ moduleForComponent('diy-top-bar', 'Unit | Component | diy top bar', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   // Creates the component instance
   var component = this.subject();
   assert.equal(component._state, 'preRender');
+
+    //make a test fixture - session service
+  component.set('session', Ember.Object.extend().create({  isSignedIn: false }));
+  assert.ok(component.get('session'));
+
 
   // Renders the component to the page
   this.render();
