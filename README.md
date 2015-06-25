@@ -2,6 +2,10 @@
 
 Mobile compatible website, to access diy.org
 
+[![Build Status](https://travis-ci.org/Br3nda/diy.svg?branch=master)](https://travis-ci.org/Br3nda/diy)
+[![Dependency Status](https://gemnasium.com/Br3nda/diy.svg)](https://gemnasium.com/Br3nda/diy)
+[![Code Climate](https://codeclimate.com/github/Br3nda/diy/badges/gpa.svg)](https://codeclimate.com/github/Br3nda/diy)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
