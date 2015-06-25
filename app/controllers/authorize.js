@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
   actions: {
     doAuth: function () {
-      debugger;
+
       var username = this.get('username');
       var password = this.get('password');
 
