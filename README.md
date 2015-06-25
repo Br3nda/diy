@@ -2,6 +2,8 @@
 
 Mobile compatible website, to access diy.org
 
+[![Build Status](https://travis-ci.org/Br3nda/diy.svg?branch=master)](https://travis-ci.org/Br3nda/diy)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
