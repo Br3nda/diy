@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Promise from 'ember';
 
 export default Ember.Service.extend({
   token: null,
@@ -7,10 +8,10 @@ export default Ember.Service.extend({
 
   signInErrorMessage: '',
 
-  isSignedIn:function () {
-    this.loadSession();
-    return !! this.get('token');
-  }.property('token'),
+  // isSignedIn:function () {
+  //   this.loadSession();
+  //   return !! this.get('token');
+  // }.property('token'),
 
   saveSession: function (payload) {
     this.set('token', payload.token);
@@ -34,22 +35,26 @@ export default Ember.Service.extend({
   },
   signOut: function () {
     console.log("Signing out");
-    var cookie = this.get('cookie');
-    cookie.setCookie('token', '');
-    cookie.setCookie('maker_id', '');
-    cookie.setCookie('maker_url', '');
-    this.set('token', 0);
-    this.set('maker_id', 0);
-    this.set('maker_url', 0);
-  },
+    var promise = new Promise(function (resolve /*, reject*/) {
+      var cookie = this.get('cookie');
+      cookie.setCookie('token', '');
+      cookie.setCookie('maker_id', '');
+      cookie.setCookie('maker_url', '');
+      this.set('token', 0);
+      this.set('maker_id', 0);
+      this.set('maker_url', 0);
 
+      this.set('isSignedIn', false);
+
+      resolve();
+    });
+    return promise;
+  },
   signIn: function (username, password) {
     var self = this;
 
     var promise = new Promise(function(resolve, reject) {
-      var _reject = reject;
-      var _resolve = resolve;
-      $.ajax({
+      Ember.$.ajax({
         type: "GET",
         url: 'https://api.diy.org/authorize',
         username: username,
@@ -62,10 +67,10 @@ export default Ember.Service.extend({
       }).done(function (response){
         self.saveSession(response.response);
         self.set('isSignedIn', true);
-        _resolve();
+        resolve();
       }).fail(function (jqXHR, textStatus) {
         self.set('signInErrorMessage', textStatus);
-        _reject(textStatus);
+        reject(textStatus);
       });
     });
     return promise;
