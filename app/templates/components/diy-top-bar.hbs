@@ -1,6 +1,3 @@
-<div id="menu-activator" class="pure-u">
-
-</div>
 <div id="nav" class="pure-u {{if menuActive 'active'}}">
 <a {{action "showMenu"}} class="nav-menu-button">Menu</a>
   <div class="nav-inner">
@@ -9,17 +6,17 @@
           <li class="pure-menu-item">
             {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
           </li>
-          <li class="pure-menu-item">
-            {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
-          </li>
-          <li class="pure-menu-item">
-            {{#if isSignedIn}}
-            {{else}}
+          {{#if session.isSignedIn}}
+            <li class="pure-menu-item">
+              {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
+            </li>
+          {{else}}
+            <li class="pure-menu-item">
               {{#link-to "authorize" classNames="pure-menu-link"}}Sign-in{{/link-to}}
-            {{/if}}
-          </li>
+            </li>
+          {{/if}}
       </ul>
-    {{#if isSignedIn}}
+    {{#if session.isSignedIn}}
       <button class="primary-button pure-button" {{action "signOut"}}>Sign-out</button>
     {{/if}}
 

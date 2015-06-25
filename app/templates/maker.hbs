@@ -1,5 +1,5 @@
 <div id="list" class="pure-u-1">
-  <div class="project-item project-item-selected pure-g">
+  <div class="maker-details">
     <img src="{{model.avatar.medium.url}}">
     <div class="pure-u">
       <p>{{model.nickname}}</p>
@@ -7,7 +7,7 @@
   </div>
 
   {{#each project in projects}}
-    <div class="project-item project-item-unread pure-g">
+    <div class="project-item pure-u">
       <div class="pure-u">
         {{#link-to "maker.project" project}}
           {{project-thumbnail project=project}}
@@ -27,7 +27,6 @@
 </div>
 
 <div id="main" class="pure-u-1">
-
     <div class="project-content">
         {{outlet}}
     </div>
