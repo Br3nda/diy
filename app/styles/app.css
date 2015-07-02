@@ -146,6 +146,9 @@ p {
     padding: 20px;
 }
 
+
+
+
 /*
  * -- project STYLES --
  * Styles relevant to the project messages, labels, counts, and more.
@@ -312,6 +315,20 @@ p {
         width: auto; /* so that it's not 100% */
     }
 
+    #full-page-no-list {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 60px;
+        overflow: auto;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;
+        margin-left: 100px;
+        bottom: auto;
+        overflow: auto;
+    }
+
 }
 
 /*
@@ -360,5 +377,16 @@ p {
         overflow: auto;
     }
 
-
+    #full-page-no-list {
+        margin-left: -350px;
+        padding: 50px;
+        width: 100%;
+        height: 100%;
+        position: auto;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        overflow: auto;
+        margin-top: auto;
+    }
 }
