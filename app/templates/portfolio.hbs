@@ -13,7 +13,7 @@
         <div class="pure-u">
 
 
-          {{#link-to "maker.project" project}}
+          {{#link-to "maker.project" project.maker.url project.id}}
             <h1>{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h1>
           {{/link-to}}
 

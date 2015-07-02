@@ -10,7 +10,7 @@
       </div>
 
       <div class="pure-u-3-4">
-          {{#link-to "maker.project" project}}
+          {{#link-to "maker.project" project.maker.url project.id}}
           <h5 class="project-name">{{model.nickname}}</h5>
           <h4 class="project-subject">{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h4>
           {{/link-to}}
