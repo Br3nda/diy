@@ -1,2 +1,57 @@
 {{outlet}}
 
+
+<div id="full-page-no-list">
+  {{maker-details maker=model}}
+
+  {{#each project in projects}}
+    <div class="pure-u">
+
+
+      {{#link-to "maker.project" project}}
+        <h1>{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h1>
+      {{/link-to}}
+
+      {{#each clip in project.clips}}
+        <img src="{{clip.assets.web_960.url}}" class="pure-img">
+      {{/each}}
+
+    </div>
+  {{/each}}
+
+</div>
+
+
+
+{{!--
+<div id="list" class="pure-u-1">
+
+  {{#each project in projects}}
+    <div class="project-item pure-u">
+      <div class="pure-u">
+        {{#link-to "maker.project" project}}
+          {{project-thumbnail project=project}}
+        {{/link-to}}
+      </div>
+
+      <div class="pure-u-3-4">
+          {{#link-to "maker.project" project}}
+          <h5 class="project-name">{{model.nickname}}</h5>
+          <h4 class="project-subject">{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h4>
+          {{/link-to}}
+      </div>
+    </div>
+  {{/each}}
+  <button {{action "loadMoreProjects"}}>more</button>
+
+</div>
+
+<div id="main" class="pure-u-1">
+    <div class="project-content">
+        {{outlet}}
+    </div>
+</div>
+
+
+
+--}}
