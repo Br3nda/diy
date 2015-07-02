@@ -2,7 +2,7 @@ import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
   urlForFindQuery: function (query /*, modelName*/) {
-    if (query.id) {
+    if (query.maker) {
       var maker = query.maker;
       delete query.maker;
 
