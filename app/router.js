@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('badges');
   });
   this.route('portfolio');
+  this.route('search', function() {});
 });
 
 export default Router;

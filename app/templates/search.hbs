@@ -1,0 +1,26 @@
+<div id="full-page-no-list">
+<div class="pure-u">
+<form class="pure-form">
+    <fieldset>
+        {{input required=true placeholder="search" value=q}}
+        <button {{action "doSearch"}} type="submit" class="pure-button pure-button-primary">Search</button>
+    </fieldset>
+</form>
+
+{{#if isDoingSearchQuery}}
+Retrieving....
+{{/if}}
+
+{{#if results}}
+  <h2>Search results</h2>
+  {{#each project in results}}
+
+    <h2>{{project.title}}</h2>
+    {{project.maker.url}}
+    {{#link-to "maker.project" project.maker.url project.id}}
+      {{project-thumbnail project=project}}
+    {{/link-to}}
+  {{/each}}
+{{/if}}
+</div>
+</div>
