@@ -2,23 +2,34 @@
 
 
 <div id="full-page-no-list">
-  {{maker-details maker=model}}
 
-  {{#each project in projects}}
-    <div class="pure-u">
-
-
-      {{#link-to "maker.project" project}}
-        <h1>{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h1>
-      {{/link-to}}
-
-      {{#each clip in project.clips}}
-        <img src="{{clip.assets.web_960.url}}" class="pure-img">
-      {{/each}}
-
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      {{maker-details maker=model}}
     </div>
-  {{/each}}
 
+    {{#each project in projects}}
+      <div class="pure-u-1-1">
+        <div class="pure-u">
+
+
+          {{#link-to "maker.project" project}}
+            <h1>{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h1>
+          {{/link-to}}
+
+          {{#each clip in project.clips}}
+            <img src="{{clip.assets.web_960.url}}" class="pure-img">
+          {{/each}}
+
+        </div>
+      </div>
+    {{/each}}
+    <div class="pure-u-1-1">
+      <div class="pure-u">
+        <button {{action "loadMoreProjects"}}>load more</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -42,7 +53,7 @@
       </div>
     </div>
   {{/each}}
-  <button {{action "loadMoreProjects"}}>more</button>
+
 
 </div>
 

@@ -7,7 +7,19 @@ export default Ember.Controller.extend({
         limit: this.get('projectsPerLoad'),
         offset: this.get('projectOffset')
       };
-    console.log(query);
-    return this.store.find('project', query);
+
+    var more_projects = this.store.find('project', query);
+
+    return this.store.all('project');
   }.property('projects,projectOffset'),
+
+  projectOffset: 4,
+  projectsPerLoad: 10,
+  actions: {
+    loadMoreProjects: function () {
+      this.incrementProperty('projectOffset', this.get('projectsPerLoad'));
+    }
+  }
+
+
 });
