@@ -13,15 +13,19 @@ export default Ember.Controller.extend({
 
       var self = this;
 
-      this.session.signIn(username, password).then(
+      self.session.signIn(username, password,
+        //success
         function () {
-          //success
           self.transitionTo('portfolio');
         },
+        //fail
+        function() {
+        },
+        //always
         function () {
-          //failure
           self.set('checkingCredentials', false);
-        });
+        }
+      );
     }
   }
 });

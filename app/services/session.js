@@ -34,45 +34,43 @@ export default Ember.Service.extend({
     this.set('maker_url', cookie.getCookie('maker_url'));
   },
   signOut: function () {
-    console.log("Signing out");
-    var promise = new Promise(function (resolve /*, reject*/) {
-      var cookie = this.get('cookie');
-      cookie.setCookie('token', '');
-      cookie.setCookie('maker_id', '');
-      cookie.setCookie('maker_url', '');
-      this.set('token', 0);
-      this.set('maker_id', 0);
-      this.set('maker_url', 0);
 
-      this.set('isSignedIn', false);
+    var cookie = this.get('cookie');
+    cookie.setCookie('token', '');
+    cookie.setCookie('maker_id', '');
+    cookie.setCookie('maker_url', '');
+    this.set('token', 0);
+    this.set('maker_id', 0);
+    this.set('maker_url', 0);
 
-      resolve();
-    });
-    return promise;
+    this.set('isSignedIn', false);
   },
-  signIn: function (username, password) {
+  signIn: function (username, password, success, fail, always) {
     var self = this;
 
-    var promise = new Promise(function(resolve, reject) {
-      Ember.$.ajax({
-        type: "GET",
-        url: 'https://api.diy.org/authorize',
-        username: username,
-        password: password,
-        beforeSend: function (xhr){
-          var tok = username + ':' + password;
-          var hash = btoa(tok);
-          xhr.setRequestHeader('Authorization',  "Basic " + hash);
-        },
-      }).done(function (response){
-        self.saveSession(response.response);
-        self.set('isSignedIn', true);
-        resolve();
-      }).fail(function (jqXHR, textStatus) {
-        self.set('signInErrorMessage', textStatus);
-        reject(textStatus);
-      });
+    self.set('signInErrorMessage', '');
+
+    return Ember.$.ajax({
+      type: "GET",
+      url: 'https://api.diy.org/authorize',
+      username: username,
+      password: password,
+      beforeSend: function (xhr){
+        var tok = username + ':' + password;
+        var hash = btoa(tok);
+        xhr.setRequestHeader('Authorization',  "Basic " + hash);
+      },
+
+    }).done(function (response){
+      self.saveSession(response.response);
+      self.set('isSignedIn', true);
+      success.call();
+    }).fail(function (jqXHR, textStatus) {
+      self.set('signInErrorMessage', textStatus);
+      fail.call()
+    }).always(function() {
+      always.call();
     });
-    return promise;
+
   }
 });
