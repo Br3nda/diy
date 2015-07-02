@@ -1,10 +1,5 @@
 <div id="list" class="pure-u-1">
-  <div class="maker-details">
-    <img src="{{model.avatar.medium.url}}">
-    <div class="pure-u">
-      <p>{{model.nickname}}</p>
-    </div>
-  </div>
+  {{maker-details maker=model}}
 
   {{#each project in projects}}
     <div class="project-item pure-u">
