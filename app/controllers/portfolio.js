@@ -8,9 +8,8 @@ export default Ember.Controller.extend({
         offset: this.get('projectOffset')
       };
 
-    var more_projects = this.store.find('project', query);
+    return this.store.find('project', query);
 
-    return this.store.all('project');
   }.property('projects,projectOffset'),
 
   projectOffset: 4,
