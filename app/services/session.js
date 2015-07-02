@@ -67,7 +67,7 @@ export default Ember.Service.extend({
       success.call();
     }).fail(function (jqXHR, textStatus) {
       self.set('signInErrorMessage', textStatus);
-      fail.call()
+      fail.call();
     }).always(function() {
       always.call();
     });
