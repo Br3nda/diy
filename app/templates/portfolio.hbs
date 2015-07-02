@@ -12,14 +12,7 @@
       <div class="pure-u-1-1">
         <div class="pure-u">
 
-
-          {{#link-to "maker.project" project.maker.url project.id}}
-            <h1>{{#if project.title}}{{project.title}}{{else}}Untitled{{/if}}</h1>
-          {{/link-to}}
-
-          {{#each clip in project.clips}}
-            <img src="{{clip.assets.web_960.url}}" class="pure-img">
-          {{/each}}
+         {{project-details-large project=project}}
 
         </div>
       </div>
