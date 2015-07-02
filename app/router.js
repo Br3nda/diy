@@ -14,9 +14,10 @@ Router.map(function() {
 
   this.route('maker', {path: '/m/:maker.url'}, function() {
     this.route('project', {path: 'p/:id'});
+  });
+  this.route('portfolio', function() {
     this.route('badges');
   });
-  this.route('portfolio');
   this.route('search', function() {});
 });
 
