@@ -11,5 +11,9 @@ export default Ember.Component.extend({
       this.set('menuActive', !this.get('menuActive'));
     },
 
-  }
+  },
+  isSignedIn: function () {
+    debugger;
+    return this.session.get('isSignedIn');
+  }.property('session.isSignedIn')
 });

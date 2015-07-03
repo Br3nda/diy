@@ -7,12 +7,9 @@ export default Ember.Service.extend({
   maker_url: null,
 
   signInErrorMessage: '',
-
-  // isSignedIn:function () {
-  //   this.loadSession();
-  //   return !! this.get('token');
-  // }.property('token'),
-
+  isSignedIn: function () {
+    return !! this.get('token');
+  },
   saveSession: function (payload) {
     this.set('token', payload.token);
     this.set('maker_id', payload.id);
