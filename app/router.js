@@ -19,7 +19,7 @@ Router.map(function() {
 
   this.route('portfolio', function() {
     this.route('projects');
-    this.route('badges');
+    this.route('skills');
   });
 });
 
