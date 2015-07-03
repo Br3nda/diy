@@ -1,0 +1,26 @@
+{{outlet}}
+
+
+<div id="full-page-no-list">
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      {{maker-details maker=model}}
+    </div>
+
+    {{#each project in projects}}
+      <div class="pure-u-1-1">
+        <div class="pure-u">
+
+         {{project-details-large project=project}}
+
+        </div>
+      </div>
+    {{/each}}
+    <div class="pure-u-1-1">
+      <div class="pure-u">
+        <button {{action "loadMoreProjects"}}>load more</button>
+      </div>
+    </div>
+  </div>
+</div>

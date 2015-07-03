@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
       self.session.signIn(username, password,
         //success
         function () {
-          self.transitionTo('portfolio');
+          self.transitionTo('portfolio.projects');
         },
         //fail
         function() {

@@ -15,10 +15,12 @@ Router.map(function() {
   this.route('maker', {path: '/m/:maker.url'}, function() {
     this.route('project', {path: 'p/:id'});
   });
+  this.route('search', function() {});
+
   this.route('portfolio', function() {
+    this.route('projects');
     this.route('badges');
   });
-  this.route('search', function() {});
 });
 
 export default Router;
