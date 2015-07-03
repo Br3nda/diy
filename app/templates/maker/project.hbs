@@ -2,7 +2,7 @@
     <div class="pure-u-1-2">
         <h1 class="project-content-title">{{#if model.title}}{{model.title}}{{else}}Untitled{{/if}}</h1>
         <p class="project-content-subtitle">
-            {{#link-to "maker" model.maker}}{{model.maker.nickname}}{{/link-to}} at <span>{{model.stamp}}</span>
+            {{#link-to "maker" model.maker.url}}{{model.maker.nickname}}{{/link-to}} at <span>{{model.stamp}}</span>
         </p>
     </div>
 
