@@ -9,9 +9,12 @@
           <li class="pure-menu-item">
             {{#link-to "skills" classNames="pure-menu-link"}}Skills{{/link-to}}
           </li>
-          {{#if session.isSignedIn}}
+          {{#if isSignedIn}}
             <li class="pure-menu-item">
-              {{#link-to "portfolio" classNames="pure-menu-link"}}Portfolio{{/link-to}}
+              {{#link-to "portfolio.projects" classNames="pure-menu-link"}}Portfolio{{/link-to}}
+            </li>
+            <li class="pure-menu-item">
+              {{#link-to "portfolio.badges" classNames="pure-menu-link"}}My Badges{{/link-to}}
             </li>
           {{else}}
             <li class="pure-menu-item">
@@ -19,7 +22,7 @@
             </li>
           {{/if}}
       </ul>
-    {{#if session.isSignedIn}}
+    {{#if isSignedIn}}
       <button class="primary-button pure-button" {{action "signOut"}}>Sign-out</button>
     {{/if}}
 
