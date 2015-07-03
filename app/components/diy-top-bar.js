@@ -13,7 +13,6 @@ export default Ember.Component.extend({
 
   },
   isSignedIn: function () {
-    debugger;
     return this.session.get('isSignedIn');
   }.property('session.isSignedIn')
 });
